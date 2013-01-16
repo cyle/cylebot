@@ -10,16 +10,15 @@ Cylebot keeps track of the last few things said for later reference and will res
 - <code>!poem</code> -- returns a random line or lines (if a number is given as well) of poetry from his database of poetry.
 - <code>!status</code> -- returns a random status update, based on his knowledge repository, explained later. Equivilent of asking "cylebot, how are you?"
 - <code>!sentence</code> -- returns a random sentence from wiktionary.org list of phrases.
-- <code>!roll</code> -- rolls a die for you! even accepts D&D notation, i.e. !roll 4d10
+- <code>!roll [sides or notation]</code> -- rolls a die for you! even accepts D&D notation, i.e. !roll 4d10
 - <code>!song</code> -- returns a random song from a server with a special iTunes library scrubber on it
-- <code>!server</code> [server hostname] -- returns the current status of server (based on [my Nagios API](https://github.com/cyle/nagios-cache-api))
+- <code>!server [server hostname]</code> -- returns the current status of server (based on [my Nagios API](https://github.com/cyle/nagios-cache-api))
 - <code>!lastlyric</code> and <code>!lastpoem</code> -- these return what the last lyric or last poem was from
 
 ## Requirements
 
 - node.js (running 0.6.7 in production)
 - "jerk" node.js module (running 1.1.21 in production)
-- "mongolian" node.js module (running 0.1.16 in production)
 - MongoDB (running 2.0.2 in production on the same box as the bot)
 - Web server (running 1.4.28 in production)
 - PHP 5.3+ (running 5.3.6 in production)
