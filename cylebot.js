@@ -4,11 +4,11 @@
 var my_name = 'cylebot';
 var my_name_match = new RegExp("^(.*)\\b"+my_name+"\\b(.*)$", 'i');
 
-var my_home_chatserver = 'roundtable.emerson.edu';
+var my_home_chatserver = 'your-irc-server.com';
 var my_home_channel = '#AC$';
 
-var my_home_appserver = 'shadow.dev.emerson.edu';
-var my_home_musicserver = 'no.dev.emerson.edu';
+var my_home_appserver = 'your-app-server.com';
+var my_home_musicserver = 'your-music-server.com';
 
 var my_father = 'cyle';
 var my_mother = 'molly';

@@ -6,21 +6,24 @@ Cylebot has two main forms of interaction: responding directly to things happeni
 
 Cylebot keeps track of the last few things said for later reference and will respond to questions directed at him. Asking "cylebot, how are you?" will illicit a direct response, depending on what you've filled his knowledge base with. He also has several commands:
 
-- !lyric -- returns a random lyric from a Lyrics Wiki based on a preset selection of artists.
-- !poem -- returns a random line or lines (if a number is given as well) of poetry from his database of poetry.
-- !status -- returns a random status update, based on his knowledge repository, explained later. Equivilent of asking "cylebot, how are you?"
-- !sentence -- returns a random sentence from wiktionary.org list of phrases.
-- !roll -- rolls a die for you! even accepts D&D notation, i.e. !roll 4d10
-- !song -- returns a random song from a server with a special iTunes library scrubber on it
-- !lastlyric and !lastpoem -- these return what the last lyric or last poem was from
+- <code>!lyric</code> -- returns a random lyric from a Lyrics Wiki based on a preset selection of artists.
+- <code>!poem</code> -- returns a random line or lines (if a number is given as well) of poetry from his database of poetry.
+- <code>!status</code> -- returns a random status update, based on his knowledge repository, explained later. Equivilent of asking "cylebot, how are you?"
+- <code>!sentence</code> -- returns a random sentence from wiktionary.org list of phrases.
+- <code>!roll</code> -- rolls a die for you! even accepts D&D notation, i.e. !roll 4d10
+- <code>!song</code> -- returns a random song from a server with a special iTunes library scrubber on it
+- <code>!server</code> [server hostname] -- returns the current status of server (based on [my Nagios API](https://github.com/cyle/nagios-cache-api))
+- <code>!lastlyric</code> and <code>!lastpoem</code> -- these return what the last lyric or last poem was from
 
 ## Requirements
 
-- node.js (running v.0.6.7 in production)
+- node.js (running 0.6.7 in production)
 - "jerk" node.js module (running 1.1.21 in production)
+- "mongolian" node.js module (running 0.1.16 in production)
 - MongoDB (running 2.0.2 in production on the same box as the bot)
-- Web server (running lighttpd 1.4.28 in production)
-- PHP 5.3+ (running PHP 5.3.6 in production)
+- Web server (running 1.4.28 in production)
+- PHP 5.3+ (running 5.3.6 in production)
+- PHP Mongo PECL extension (running 1.2.7 in production)
 - an IRC server and channel for him to live on!
 
 ## Installation
@@ -45,7 +48,7 @@ There are a lot of commands/things that are very Emerson- or IT-specific. For ex
 
 The "music"/!song command -- which retrieves a random song selection from an iTunes library -- is a separate piece entirely which I have not yet put on github. It basically just asks my work machine to parse my iTunes library XML file and return a random entry. I'll add this to github at some point.
 
-There are several !commands which rely on outside APIs and services, namely the !lyric, !fact, !status, !define, and !server commands. The !server command requires use of my Nagios API, so if you're not doing anything like that, it may be better to just wipe that out. The other four commands listed a minute ago are based on various sites around the web, so the server will need to be able to access those sites for those commands to work.
+There are several !commands which rely on outside APIs and services, namely the !lyric, !fact, !status, !define, and !server commands. The !server command requires use of [my Nagios API](https://github.com/cyle/nagios-cache-api), so if you're not doing anything like that, it may be better to just wipe that out. The other four commands listed a minute ago are based on various sites around the web, so the server will need to be able to access those sites for those commands to work.
 
 ## Need to do...
 
