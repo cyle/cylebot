@@ -509,7 +509,7 @@ var irc = jerk(function(j) {
 				}
 			} else {
 				var roll = rollDie(100);
-				if (roll % 2) {
+				if (roll < 30) {
 					if (message.user.substr(0,4).toLowerCase() == my_father) {
 						wut = 'ok dad...';
 					} else if (message.user.substr(0,5).toLowerCase() == my_mother) {
@@ -519,9 +519,33 @@ var irc = jerk(function(j) {
 					} else {
 						wut = 'uh okay';
 					}
-				} else {
+					setTimeout(function() {
+						message.say(logMsg(wut));
+					}, Math.round(Math.random() * 1000)+1000);
+					return;
+				} else if (roll >= 30 && roll <= 50) {
 					wut = 'uh what';
+					setTimeout(function() {
+						message.say(logMsg(wut));
+					}, Math.round(Math.random() * 1000)+1000);
+					return;
+				} else {
+					http.get({host: my_home_appserver, port: 80, path: '/cylebot/sentence.php'}, function(res) {
+						res.on('data', function (chunk) {
+							var returned = ''+chunk+'';
+							returned = message.user.toLowerCase() + ', ' + returned;
+							if (filterMsg(returned)) {
+								message.say(logMsg(returned));
+
+							}
+						});
+					});
+					return;
 				}
+			}
+			var roll = rollDie(100);
+			if (roll > 60) {
+				wut = message.user.toLowerCase() + ', ' + wut;
 			}
 			setTimeout(function() {
 				message.say(logMsg(wut));
@@ -687,7 +711,7 @@ var irc = jerk(function(j) {
 		
 		
 		// Highlights thing. only do it if it's > 75 chars
-		if (chatline.length > 75 && rollDie(3) == 1) {
+		if (chatline.length > 75 && rollDie(5) == 1) {
 			var wordpieces = chatline.match(/\b[\w']{4,}\b/gi);
 			var randomwords = [];
 			if (wordpieces.length > 5) {
