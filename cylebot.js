@@ -19,7 +19,7 @@ var my_chatlog = '/node/logs/cylebot_chat.log';
 var petnames = [ 'honey', 'babe', 'baby', 'sweetheart', 'sugar bumps', 'angel', 'pumpkinpie', 'honey nut cheerios' ]; // oh dear
 var innappropriate = [ 'fuck', 'shit', 'nigger', 'fag', 'rape', 'cunt', 'ass', 'asshole', 'bitch', 'sex' ]; // oh lol
 
-var labs = ['XML', 'ATL', 'APL', 'Tufte', 'JRL', '3DL'];
+var labs = ['XML', 'ATL', 'APL', 'PEL', 'JRL', '3DL'];
 
 String.prototype.trim=function(){return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');};
 
