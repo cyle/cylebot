@@ -493,7 +493,7 @@ var irc = jerk(function(j) {
 						break;
 					}
 				} else {
-					var roll = rollDie(3);
+					var roll = rollDie(6);
 					switch (roll) {
 						case 1:
 						wut = 'i am confused by the question';
@@ -504,6 +504,22 @@ var irc = jerk(function(j) {
 						case 3:
 						wut = 'ask somebody else, i don\'t know';
 						break;
+						default:
+						http.get({host: 'api.adviceslip.com', port: 80, path: '/advice'}, function(res) {
+							var returned = '';
+							res.on('data', function (chunk) {
+								returned += chunk;
+							});
+							res.on('end', function() {
+								console.log(returned);
+								var advice = JSON.parse(returned);
+								var returntext = message.user.toLowerCase() + ', ' + advice.slip.advice.toLowerCase();
+								if (filterMsg(returntext)) {
+									message.say(logMsg(returntext));
+								}
+							});
+						});
+						return;
 					}
 					
 				}
